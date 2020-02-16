@@ -1,4 +1,4 @@
-export default function updateAction(state, payload) {
+export function updateAction(state, payload) {
     return {
       ...state,
       data: {

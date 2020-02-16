@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { connect } from 'react-redux'
-// import updateAction from './actions'
+// import { updateAction } from './updateAction'
+import { updateAction } from '../../../../store/index'
 import _ from "lodash";
 
 import {
@@ -30,14 +31,52 @@ import {
 } from "../../../../components";
 import { func } from "prop-types";
 
-const bodyObject = {}
+const bodyObject = {
+  id: '',
+    cProjectId: '',
+    projectName: '',
+    signatureDate: '',
+    serviceCommencement: '',
+    contractDurationMonth: '',
+    contractValueUsd: '',
+    projectedMargin: '',
+    componentOfBespoke: '',
+    oftenProvideServices: '',
+    isTransitionPlan: '',
+    transitionPlanDate: '',
+    isTransitionCharges: '',
+    transitionCharges: '',
+    isTransformationPlan: '',
+    transformationPlanStart: '',
+    transformationPlanEend: '',
+    serviceLevelsWithCredit: '',
+    isEarnBack: '',
+    isCustomerSatisfactionReport: '',
+    customerSatisfactionForm: '',
+    governanceType: '',
+    governanceOften: '',
+    keyPersonnel: '',
+    supplierPersonnel: '',
+    customerPersonnel: '',
+    plannedNegotiationMonth: '',
+    negotiationsMonth: '',
+    soleSourced: '',
+    proposedPeriodWeeks: '',
+    actualPeriodWeeks: '',
+    isDueDiligenceCompleted: '',
+    agreementParty: '',
+    typeOfService: '',
+    currency: '',
+    serviceLevelWithoutCredit: '',
+    serviceLevelCapPercentage: '',
+    serviceCredeitCapType: ''
+}
 
 export const QuestionInput = props => {
   const { qu, name } = props;
   const { final } = props;
   const { control, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-  // const onSubmit = (data) => props.updateAction(data)
+  const onSubmit = (data) => props.updateAction(data)
 
   const [value, setValue] = React.useState([]);
   
@@ -79,7 +118,7 @@ export const QuestionInput = props => {
     currency: '',
     serviceLevelWithoutCredit: '',
     serviceLevelCapPercentage: '',
-    serviceCredeitCapType: '',
+    serviceCredeitCapType: ''
   })
 
   function nextPreprocess() {
@@ -91,31 +130,6 @@ export const QuestionInput = props => {
     props.saveState(props.index, { id: props.id, value });
     props.prevFn();
   }
-
-  function updateField(e) {
-    setState({
-      ...form,
-      [e.target.name]: e.target.value
-    })
-    console.log('object', form)
-  }
-  function onValueChange(newValue) {
-    if (value === newValue) {
-      setValue(newValue);
-      return;
-    }
-    setValue(newValue);
-    console.log('new', value)
-  }
-
-
-  // const updateField = e => {
-  //   setState({
-  //     ...form,
-  //     [e.target.name]: e.target.value
-  //   });
-  //   console.log('doug', form);
-  // };
 
 
   return (
@@ -141,16 +155,6 @@ export const QuestionInput = props => {
             }}>Please Enter...</Label>
             <Col sm={3}>
             <Controller as={<Input />} type="number" name={name} control={control} defaultValue="" />
-
-              {/* <Input
-                type="number"
-                name={name}
-                value={value}
-                // value={form[name]}
-                placeholder="Value"
-                // onChange={updateField}
-                onChange={(event) => onValueChange(event.target.value)}
-              /> */}
               <input type="submit" />
             </Col>
           </FormGroup>
@@ -176,6 +180,19 @@ export const QuestionInput = props => {
   );
 };
 
-export default QuestionInput;
+
+const mapStateToProps = (state) => {
+  return {
+    bodyObject: state.bodyObject
+  }
+}
+
+const mapDispatchToProps = { updateAction}
+
+// export default QuestionInput;
 
 // connect(({ }) => ({  }), updateAction)(QuestionInput)
+
+// export default connect(state => ({ data: updateAction(state) }))(QuestionInput)
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionInput)
+

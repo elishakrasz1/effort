@@ -31,5 +31,13 @@ function updateAction(data) {
   };
 }
 
+// const updateAction = data => ({
+//     type: UPDATE_ACTION,
+//     payload: {
+//         data,
+        
+//     }
+// })
+
 export { SWITCH_USER, UPDATE_PROFILE, DELETE_PROFILE, UPDATE_ACTION }
 export { switchUser, updateProfile, deleteProfile, updateAction }

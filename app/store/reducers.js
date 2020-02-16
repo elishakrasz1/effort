@@ -42,7 +42,9 @@ const backQu = {
   serviceLevelCapPercentage: '',
   serviceCredeitCapType: ''
 }
-const initialState = backQu
+const initialState = {
+  arr:[]
+}
 
 function user(state={}, action) {
   switch(action.type) {
@@ -67,7 +69,7 @@ function profile(state={}, action) {
       return state;
   }
 }
-function update_action(state={}, action) {
+function update_action(state=initialState, action) {
   switch(action.type) {
     case UPDATE_ACTION: 
     // return {
@@ -77,11 +79,21 @@ function update_action(state={}, action) {
     //     ...payload
     //   }
     // }
-      return Object.assign(
-        {},
-        state,
-        action.update_action
-      );
+    //   return Object.assign(
+    //     {},
+    //     state,
+    //     action.update_action
+    //   )
+
+    //   return {
+    //       ...state,
+    //       update_action: action.update_action
+    //   }
+
+      return {
+          ...state,
+          arr: [...state.arr, action.new]
+      }
     default:
       return state;
   }

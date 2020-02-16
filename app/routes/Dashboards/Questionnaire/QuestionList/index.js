@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { connect } from 'react-redux'
-
+import { connect } from "react-redux";
+import { updateAction } from "../../../../store/index";
 
 import _ from "lodash";
 
@@ -34,15 +34,12 @@ import {
 const QuestionList = props => {
   const { qu, name, listOptions } = props;
   const { final } = props;
-  const { control, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-  // const onSubmit = (data) => props.updateAction(data)
-
-
+  const [rSelected, setRSelected] = useState(null);
+  const { control, handleSubmit, watch } = useForm();
+  const onSubmit = data => props.updateAction(data);
   const [value, setValue] = React.useState("");
-  
 
-
+  const selectValue = watch("rSelected")
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id, value });
     props.nextFn();
@@ -53,27 +50,6 @@ const QuestionList = props => {
     props.prevFn();
   }
 
-  function onValueChange(newValue) {
-    if (value === newValue) {
-      setValue(newValue);
-      return;
-    }
-    setValue(newValue);
-    console.log('ivalue', newValue)
-
-  }
-
-  // const onCheckboxBtnClick = selected => {
-  //   const index = cSelected.indexOf(selected);
-  //   if (index < 0) {
-  //     cSelected.push(selected);
-  //   } else {
-  //     cSelected.splice(index, 1);
-  //   }
-  //   setCSelected([...cSelected]);
-  //   console.log('selected', index)
-  //   console.log('i', index)
-  // };
   return (
     <div>
       <CardBody
@@ -90,53 +66,35 @@ const QuestionList = props => {
           marginLeft: "100px"
         }}
       >
-                      {/* <Controller as={<Input />} type="text" name={name} control={control} defaultValue="" /> */}
-        
-        <ButtonGroup
-          color="primary"
-          onSubmit={handleSubmit(onSubmit)}
-          name={name}
-          style={{
-            marginLeft: "5px"
-          }}
-        >
-          {listOptions.map((item, index) => (
-            <Controller as={Button} name={name} control={control} defaultValue="" value={index} key={index} type="submit" style={{
-              marginLeft: "5px",
-              backgroundColor: 'blue'
-            }}>{item}</Controller>
-            // <Button
-            //   outline
-            //   key={index}
-            //   color="primary"
-            //   name={name}
-            //   value={value}
-            //   // onClick={onCheckboxBtnClick}
-            //   onClick={onValueChange}
-            //   // onClick={() => setRSelected(i)}
-            //   // active={rSelected === i}
-            //   style={{ marginRight: "8px" }}
-            // >
-            //   {value}
-            // </Button>
-          ))}
-        </ButtonGroup>
-        {/* <Form>
-          <FormGroup>
-            <Label style={{
-                marginLeft: '18px'
-            }}>Please Enter...List</Label>
-            <Col sm={3}>
-              <Input
-                type="number"
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <ButtonGroup
+            name={name}
+            style={{
+              marginLeft: "5px"
+            }}
+          >
+            {listOptions.map((item, index) => (
+              <Controller
+                as={<Button />}
                 name={name}
-                placeholder="USD"
-                onChange={onValueChange}
-                value={value}
-              />
-            </Col>
-          </FormGroup>
-        </Form> */}
+                control={control}
+                key={index}
+                onClick={() => setRSelected(index)}
+                value={item}
+                defaultValue={item}
+                active={rSelected === `${index}`}
+                style={{
+                  marginLeft: "5px",
+                  backgroundColor: "teal"
+                }}
+              >
+                {item}
+              </Controller>
+            ))}
+            <input type="submit" />
+          </ButtonGroup>
+          <p>Selected: {rSelected}</p>
+        </Form>
       </CardBody>
       <CardFooter className="p-4 bt-0">
         <div className="d-flex">
@@ -158,4 +116,12 @@ const QuestionList = props => {
   );
 };
 
-export default QuestionList;
+const mapStateToProps = state => {
+  return {
+    bodyObject: state.bodyObject
+  };
+};
+
+const mapDispatchToProps = { updateAction };
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionList);

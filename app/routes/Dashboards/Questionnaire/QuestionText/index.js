@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { connect } from 'react-redux'
+import { updateAction } from '../../../../store/index'
 import _ from "lodash";
 
 import {
@@ -31,51 +33,7 @@ const QuestionText = props => {
   const { qu, name } = props;
   const { final } = props;
   const { control, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-
-  const [value, setValue] = React.useState("");
-
-  const [form, setState] = useState({
-    id: '',
-    cProjectId: '',
-    projectName: '',
-    signatureDate: '',
-    serviceCommencement: '',
-    contractDurationMonth: '',
-    contractValueUsd: '',
-    projectedMargin: '',
-    componentOfBespoke: '',
-    oftenProvideServices: '',
-    isTransitionPlan: '',
-    transitionPlanDate: '',
-    isTransitionCharges: '',
-    transitionCharges: '',
-    isTransformationPlan: '',
-    transformationPlanStart: '',
-    transformationPlanEend: '',
-    serviceLevelsWithCredit: '',
-    isEarnBack: '',
-    isCustomerSatisfactionReport: '',
-    customerSatisfactionForm: '',
-    governanceType: '',
-    governanceOften: '',
-    keyPersonnel: '',
-    supplierPersonnel: '',
-    customerPersonnel: '',
-    plannedNegotiationMonth: '',
-    negotiationsMonth: '',
-    soleSourced: '',
-    proposedPeriodWeeks: '',
-    actualPeriodWeeks: '',
-    isDueDiligenceCompleted: '',
-    agreementParty: '',
-    typeOfService: '',
-    currency: '',
-    serviceLevelWithoutCredit: '',
-    serviceLevelCapPercentage: '',
-    serviceCredeitCapType: '',
-  })
-
+  const onSubmit = (data) => props.updateAction(data)
 
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id });
@@ -88,22 +46,7 @@ const QuestionText = props => {
     // props.saveState(props.index, { id: props.id, value });
     props.prevFn();
   }
-
-  function onValueChange(newValue) {
-    if (value === newValue) {
-      setValue(newValue);
-      return;
-    }
-    setValue(newValue);
-  }
-
-  // function updateField(e) {
-  //   setState({
-  //     ...form,
-  //     [e.target.name]: e.target.value
-  //   })
-  //   console.log('object', ...form)
-  // }
+  
   return (
     <div>
       <CardBody
@@ -126,13 +69,6 @@ const QuestionText = props => {
                 marginLeft: '18px'
             }}>Please Enter..</Label>
             <Col sm={3}>
-              {/* <Input
-                type="text"
-                name={name}
-                placeholder="Text"
-                value={value}
-                onChange={(event) => onValueChange(event.target.value)}
-              /> */}
               <Controller as={<Input />} type="text" name={name} control={control} defaultValue="" />
               <input type="submit" />
             </Col>
@@ -159,4 +95,13 @@ const QuestionText = props => {
   );
 };
 
-export default QuestionText;
+const mapStateToProps = (state) => {
+  return {
+    bodyObject: state.bodyObject
+  }
+}
+
+const mapDispatchToProps = { updateAction}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionText)
