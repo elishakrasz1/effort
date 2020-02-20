@@ -12,10 +12,16 @@ const HeaderAuth = (props) => (
                     props.icon ? (
                         <i className={ `fa fa-${ props.icon } fa-3x ${ props.iconClassName }` }></i>
                     ) : (
-                        <LogoThemed checkBackground height="50" />
+                        <h1><span style={{
+                            color: "#009fea",
+                    fontSize: "36px",
+                    fontWeight: 500
+                }}>Ginzi</span></h1>
+                        // <LogoThemed checkBackground height="50" /> 
                     )
                 }
             </Link>
+            
         </div>
         <h5 className="text-center mb-4">
             { props.title }
@@ -33,7 +39,8 @@ HeaderAuth.propTypes = {
 };
 HeaderAuth.defaultProps = {
     title: "Waiting for Data...",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure voluptas aperiam odit, reiciendis dicta nihil.",
+    text: "Welcome to the Ginzi Risk Management Assessment Application. Please log on or create a user below.",
+    // text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure voluptas aperiam odit, reiciendis dicta nihil.",
     iconClassName: "text-theme"
 };
 

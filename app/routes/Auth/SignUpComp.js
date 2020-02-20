@@ -112,7 +112,7 @@ class SignUpComp extends Component {
               <Label for="phone">Phone Number</Label>
               <Input
                 type="text"
-                name="text"
+                name="phone_number"
                 id="phone_number"
                 placeholder="Phone Number"
                 className="bg-white"

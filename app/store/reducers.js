@@ -85,15 +85,15 @@ function update_action(state=initialState, action) {
     //     action.update_action
     //   )
 
-    //   return {
-    //       ...state,
-    //       update_action: action.update_action
-    //   }
-
       return {
           ...state,
-          arr: [...state.arr, action.new]
+          update_action: action.update_action
       }
+
+      // return {
+      //     ...state,
+      //     arr: [...state.arr, action.new]
+      // }
     default:
       return state;
   }

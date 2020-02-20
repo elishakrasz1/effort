@@ -75,20 +75,20 @@ const QuestionList = props => {
           >
             {listOptions.map((item, index) => (
               <Controller
-                as={<Button />}
+                as={<Button color="primary" />}
                 name={name}
                 control={control}
                 key={index}
                 onClick={() => setRSelected(index)}
-                value={item}
+                value={item.option}
                 defaultValue={item}
                 active={rSelected === `${index}`}
                 style={{
                   marginLeft: "5px",
-                  backgroundColor: "teal"
+                  // backgroundColor: "teal"
                 }}
               >
-                {item}
+                {item.select}
               </Controller>
             ))}
             <input type="submit" />

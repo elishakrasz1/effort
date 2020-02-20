@@ -1,17 +1,3 @@
-// import React, { Component } from 'react'
-
-// class ConfirmSignInComp extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 ConfirmSignIn
-//             </div>
-//         )
-//     }
-// }
-
-// export default ConfirmSignInComp;
-
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Auth, Logger, JS } from 'aws-amplify';

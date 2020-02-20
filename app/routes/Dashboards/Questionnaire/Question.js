@@ -42,32 +42,32 @@ const Question = (props) => {
                                 case 'INPUT':
                                     return {
                                         name: item.id,
-                                        component: <QuestionInput id={item.id} index={index} qu={item.qu} final={final} name={item.name} />
+                                        component: <QuestionInput id={item.id} index={index} qu={item.qu} final={final} name={item.name} stage={item.stage} table={item.table} />
                                     }
                                 case 'INPUT':
                                     return {
                                         name: item.id,
-                                        component: <QuestionMultiple id={item.id} index={index} qu={item.qu} final={final} name={item.name} />
+                                        component: <QuestionMultiple id={item.id} index={index} qu={item.qu} final={final} name={item.name} stage={item.stage} table={item.table} />
                                     }
                                 case 'TEXT':
                                     return {
                                         name: item.id,
-                                        component: <QuestionText id={item.id} index={index} qu={item.qu} final={final} name={item.name} />
+                                        component: <QuestionText id={item.id} index={index} qu={item.qu} final={final} name={item.name} stage={item.stage} table={item.table} />
                                     }
                                 case 'DATE':
                                     return {
                                         name: item.id,
-                                        component: <QuestionDate id={item.id} index={index} qu={item.qu} final={final} name={item.name} />
+                                        component: <QuestionDate id={item.id} index={index} qu={item.qu} final={final} name={item.name} stage={item.stage} table={item.table} />
                                     }
                                 case 'LIST':
                                     return {
                                         name: item.id,
-                                        component: <QuestionList id={item.id} index={index} qu={item.qu} listOptions={item.listOptions} final={final} name={item.name} />
+                                        component: <QuestionList id={item.id} index={index} qu={item.qu} listOptions={item.listOptions} final={final} name={item.name} stage={item.stage} table={item.table} />
                                     }
                                 default:
                                     return {
                                         name: item.id,
-                                        component: <QuestionList id={item.id} index={index} qu={item.qu} final={final} listOptions={item.listOptions}/>
+                                        component: <QuestionList id={item.id} index={index} qu={item.qu} final={final} listOptions={item.listOptions} stage={item.stage} table={item.table} />
                                     }
                             }
                         })

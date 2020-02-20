@@ -31,46 +31,6 @@ import {
 } from "../../../../components";
 import { func } from "prop-types";
 
-const bodyObject = {
-  id: '',
-    cProjectId: '',
-    projectName: '',
-    signatureDate: '',
-    serviceCommencement: '',
-    contractDurationMonth: '',
-    contractValueUsd: '',
-    projectedMargin: '',
-    componentOfBespoke: '',
-    oftenProvideServices: '',
-    isTransitionPlan: '',
-    transitionPlanDate: '',
-    isTransitionCharges: '',
-    transitionCharges: '',
-    isTransformationPlan: '',
-    transformationPlanStart: '',
-    transformationPlanEend: '',
-    serviceLevelsWithCredit: '',
-    isEarnBack: '',
-    isCustomerSatisfactionReport: '',
-    customerSatisfactionForm: '',
-    governanceType: '',
-    governanceOften: '',
-    keyPersonnel: '',
-    supplierPersonnel: '',
-    customerPersonnel: '',
-    plannedNegotiationMonth: '',
-    negotiationsMonth: '',
-    soleSourced: '',
-    proposedPeriodWeeks: '',
-    actualPeriodWeeks: '',
-    isDueDiligenceCompleted: '',
-    agreementParty: '',
-    typeOfService: '',
-    currency: '',
-    serviceLevelWithoutCredit: '',
-    serviceLevelCapPercentage: '',
-    serviceCredeitCapType: ''
-}
 
 export const QuestionInput = props => {
   const { qu, name } = props;
@@ -80,47 +40,6 @@ export const QuestionInput = props => {
 
   const [value, setValue] = React.useState([]);
   
-  const [form, setState] = useState({
-    id: '',
-    cProjectId: '',
-    projectName: '',
-    signatureDate: '',
-    serviceCommencement: '',
-    contractDurationMonth: '',
-    contractValueUsd: '',
-    projectedMargin: '',
-    componentOfBespoke: '',
-    oftenProvideServices: '',
-    isTransitionPlan: '',
-    transitionPlanDate: '',
-    isTransitionCharges: '',
-    transitionCharges: '',
-    isTransformationPlan: '',
-    transformationPlanStart: '',
-    transformationPlanEend: '',
-    serviceLevelsWithCredit: '',
-    isEarnBack: '',
-    isCustomerSatisfactionReport: '',
-    customerSatisfactionForm: '',
-    governanceType: '',
-    governanceOften: '',
-    keyPersonnel: '',
-    supplierPersonnel: '',
-    customerPersonnel: '',
-    plannedNegotiationMonth: '',
-    negotiationsMonth: '',
-    soleSourced: '',
-    proposedPeriodWeeks: '',
-    actualPeriodWeeks: '',
-    isDueDiligenceCompleted: '',
-    agreementParty: '',
-    typeOfService: '',
-    currency: '',
-    serviceLevelWithoutCredit: '',
-    serviceLevelCapPercentage: '',
-    serviceCredeitCapType: ''
-  })
-
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id, value });
     props.nextFn();

@@ -191,7 +191,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = { updateAction}
+const mapDispatchToProps = { updateAction }
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionDate)
 

@@ -19,12 +19,10 @@ class Project(db.Model):
     transition_charges = db.Column(db.Numeric)
     milestones = db.Column(db.Integer)
     payment_milestones = db.Column(db.Integer)
-    service_levels_without_credit = db.Column(db.Integer)
     service_credit_cap = db.Column(db.Integer)
     is_transformation_plan = db.Column(db.Integer)
     transformation_plan_start = db.Column(db.DateTime(255))
     transformation_plan_end = db.Column(db.DateTime(255))
-    service_levels_with_credit = db.Column(db.Integer)
     is_earn_back = db.Column(db.Integer)
     is_customer_satisfaction_report = db.Column(db.Integer)
     customer_satisfaction_form = db.Column(db.Integer)
@@ -75,9 +73,7 @@ class ProjectInput(graphene.InputObjectType):
     is_transformation_plan = graphene.Int()
     transformation_plan_start = graphene.types.datetime.DateTime()
     transformation_plan_end = graphene.types.datetime.DateTime()
-    service_levels_without_credit = graphene.Int()
     service_credit_cap = graphene.Int()
-    service_levels = graphene.Int()
     is_earn_back = graphene.Int()
     is_customer_satisfaction_report = graphene.Int()
     customer_satisfaction_form = graphene.Int()
@@ -95,6 +91,7 @@ class ProjectInput(graphene.InputObjectType):
     agreement_party = graphene.Int()
     type_of_service = graphene.Int()
     currency = graphene.Int()
+    service_levels_with_credit = graphene.Int()
     service_level_without_credit = graphene.Int()
     service_level_cap_percentage = graphene.Int()
     service_credit_cap_type = graphene.Int()
@@ -113,7 +110,7 @@ class CreateProject(graphene.Mutation):
             c_project_id=project_data.c_project_id, project_name = project_data.project_name, signature_date=project_data.signature_date, service_commencement=project_data.service_commencement, contract_duration_month=project_data.contract_duration_month, contract_value_usd=project_data.contract_value_usd, projected_margin=project_data.projected_margin, often_provide_services=project_data.often_provide_services, is_transition_plan=project_data.is_transition_plan,
             transition_plan_date=project_data.transition_plan_date,
             is_transition_charges=project_data.is_transition_charges,
-            transition_charges=project_data.transition_charges, is_transformation_plan=project_data.is_transformation_plan, transformation_plan_start=project_data.transformation_plan_start, transformation_plan_end=project_data.transformation_plan_end, is_earn_back=project_data.is_earn_back, is_customer_satisfaction_report=project_data.is_customer_satisfaction_report, service_levels_without_credit=project_data.service_levels_without_credit, service_credit_cap_type=project_data.service_credit_cap_type, customer_satisfaction_form=project_data.customer_satisfaction_form, governance_type=project_data.governance_type, governance_often=project_data.governance_often, key_personnel=project_data.key_personnel, supplier_personnel=project_data.supplier_personnel, customer_personnel=project_data.customer_personnel, planned_negotiation_month=project_data.planned_negotiation_month, negotiations_month=project_data.negotiations_month, sole_sourced=project_data.sole_sourced, proposed_period_weeks=project_data.proposed_period_weeks, actual_period_weeks=project_data.actual_period_weeks, is_due_diligence_completed=project_data.is_due_diligence_completed, agreement_party = project_data.agreement_party, type_of_service = project_data.type_of_service, currency = project_data.currency, service_level_without_credit = project_data.service_level_without_credit, service_level_cap_percentage = project_data.service_level_cap_percentage, service_credit_cap_type = project_data.service_credit_cap_type
+            transition_charges=project_data.transition_charges, is_transformation_plan=project_data.is_transformation_plan, transformation_plan_start=project_data.transformation_plan_start, transformation_plan_end=project_data.transformation_plan_end, is_earn_back=project_data.is_earn_back, is_customer_satisfaction_report=project_data.is_customer_satisfaction_report, service_level_without_credit=project_data.service_level_without_credit, service_levels_with_credit=project_data.service_levels_with_credit, service_credit_cap_type=project_data.service_credit_cap_type, customer_satisfaction_form=project_data.customer_satisfaction_form, governance_type=project_data.governance_type, governance_often=project_data.governance_often, key_personnel=project_data.key_personnel, supplier_personnel=project_data.supplier_personnel, customer_personnel=project_data.customer_personnel, planned_negotiation_month=project_data.planned_negotiation_month, negotiations_month=project_data.negotiations_month, sole_sourced=project_data.sole_sourced, proposed_period_weeks=project_data.proposed_period_weeks, actual_period_weeks=project_data.actual_period_weeks, is_due_diligence_completed=project_data.is_due_diligence_completed, agreement_party = project_data.agreement_party, type_of_service = project_data.type_of_service, currency = project_data.currency, service_level_cap_percentage = project_data.service_level_cap_percentage, service_credit_cap_type = project_data.service_credit_cap_type
         )
         db.session.add(project)
         db.session.commit()
@@ -147,7 +144,7 @@ class UpdateProject(graphene.Mutation):
             c_project_id=project_data.c_project_id, project_name = project_data.project_name, signature_date=project_data.signature_date, service_commencement=project_data.service_commencement, contract_duration_month=project_data.contract_duration_month, contract_value_usd=project_data.contract_value_usd, projected_margin=project_data.projected_margin, often_provide_services=project_data.often_provide_services, is_transition_plan=project_data.is_transition_plan,
             transition_plan_date=project_data.transition_plan_date,
             is_transition_charges=project_data.is_transition_charges,
-            transition_charges=project_data.transition_charges, is_transformation_plan=project_data.is_transformation_plan, transformation_plan_start=project_data.transformation_plan_start, transformation_plan_end=project_data.transformation_plan_end, is_earn_back=project_data.is_earn_back, is_customer_satisfaction_report=project_data.is_customer_satisfaction_report, service_levels_without_credit=project_data.service_levels_without_credit, service_credit_cap_type=project_data.service_credit_cap_type, customer_satisfaction_form=project_data.customer_satisfaction_form, governance_type=project_data.governance_type, governance_often=project_data.governance_often, key_personnel=project_data.key_personnel, supplier_personnel=project_data.supplier_personnel, customer_personnel=project_data.customer_personnel, planned_negotiation_month=project_data.planned_negotiation_month, negotiations_month=project_data.negotiations_month, sole_sourced=project_data.sole_sourced, proposed_period_weeks=project_data.proposed_period_weeks, actual_period_weeks=project_data.actual_period_weeks, is_due_diligence_completed=project_data.is_due_diligence_completed, agreement_party = project_data.agreement_party, type_of_service = project_data.type_of_service, currency = project_data.currency, service_level_without_credit = project_data.service_level_without_credit, service_level_cap_percentage = project_data.service_level_cap_percentage, service_credit_cap_type = project_data.service_credit_cap_type
+            transition_charges=project_data.transition_charges, is_transformation_plan=project_data.is_transformation_plan, transformation_plan_start=project_data.transformation_plan_start, transformation_plan_end=project_data.transformation_plan_end, is_earn_back=project_data.is_earn_back, is_customer_satisfaction_report=project_data.is_customer_satisfaction_report, service_levels_with_credit=project_data.service_levels_with_credit, service_level_without_credit=project_data.service_level_without_credit, service_credit_cap_type=project_data.service_credit_cap_type, customer_satisfaction_form=project_data.customer_satisfaction_form, governance_type=project_data.governance_type, governance_often=project_data.governance_often, key_personnel=project_data.key_personnel, supplier_personnel=project_data.supplier_personnel, customer_personnel=project_data.customer_personnel, planned_negotiation_month=project_data.planned_negotiation_month, negotiations_month=project_data.negotiations_month, sole_sourced=project_data.sole_sourced, proposed_period_weeks=project_data.proposed_period_weeks, actual_period_weeks=project_data.actual_period_weeks, is_due_diligence_completed=project_data.is_due_diligence_completed, agreement_party = project_data.agreement_party, type_of_service = project_data.type_of_service, currency = project_data.currency, service_level_cap_percentage = project_data.service_level_cap_percentage, service_credit_cap_type = project_data.service_credit_cap_type
         )
         db.session.update(project)
         db.session.commit()

@@ -28,7 +28,9 @@ export const DefaultSidebar = () => (
                 <Link to="/" className="sidebar__brand">
                     {/* <LogoThemed checkBackground /> */}
                     <span style={{
+                        marginLeft: '22px',
                 fontSize: "36px",
+                fontWeight: 500
             }}>Ginzi</span>
                 </Link>
             </Sidebar.Section>
