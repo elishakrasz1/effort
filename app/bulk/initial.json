@@ -14,7 +14,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "agreementParty"
 	},
@@ -29,7 +29,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "cProjectId"
 	},
@@ -44,7 +44,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "projectName"
 	},
@@ -79,7 +79,7 @@
 				"option": 5
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "typeOfService"
 	},
@@ -94,7 +94,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "signatureDate"
 	},
@@ -109,7 +109,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "serviceCommencement"
 	},
@@ -124,7 +124,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "contractDurationMonth"
 	},
@@ -139,7 +139,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "contractValueUsd"
 	},
@@ -154,9 +154,9 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "CONTRACT_VALUE",
 		"stage": "general",
-		"name": "contractValue"
+		"name": "contractValueUsd"
 	},
 	{
 		"id": 10,
@@ -181,7 +181,7 @@
 				"option": 3
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "projectedMargin"
 	},
@@ -196,9 +196,9 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
-		"name": "contractValue"
+		"name": "estimatedCostUsd"
 	},
 	{
 		"id": 12,
@@ -215,7 +215,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "bespokeService"
 	},
@@ -242,7 +242,7 @@
 				"option": 3
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "bespokeType"
 	},
@@ -269,7 +269,7 @@
 				"option": 3
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "componentOfBespoke"
 	},
@@ -296,7 +296,7 @@
 				"option": 3
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "oftenProvideServices"
 	},
@@ -315,7 +315,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "isTransitionPlan"
 	},
@@ -330,7 +330,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "transitionPlanDate"
 	},
@@ -349,7 +349,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "isTransitionCharges"
 	},
@@ -364,7 +364,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "transitionCharges"
 	},
@@ -383,7 +383,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "otherMiliestones"
 	},
@@ -398,7 +398,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "milestones"
 	},
@@ -432,7 +432,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "isTransformationPlan"
 	},
@@ -447,7 +447,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "transformationPlanStart, transformationPlanEnd"
 	},
@@ -466,7 +466,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"name": "serviceLevels"
 	},
 	{
@@ -480,7 +480,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "serviceLevelsWithCredit"
 	},
@@ -495,7 +495,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"name": "serviceLevelsWithoutCredit"
 	},
 	{
@@ -517,7 +517,7 @@
 				"option": 2
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "serviceCreditCapPercentage"
 	},
@@ -536,7 +536,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "isEarnBack"
 	},
@@ -555,7 +555,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "isCustomerSatisfactionReport"
 	},
@@ -578,7 +578,7 @@
 				"option": 2
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "customerSatisfactionForm"
 	},
@@ -605,7 +605,7 @@
 				"option": 3
 			}
 		],
-		"table": "governance",
+		"table": "GOVERNANCE",
 		"stage": "general",
 		"name": "governanceType"
 	},
@@ -620,7 +620,7 @@
 				"option": 0
 			}
 		],
-		"table": "governance",
+		"table": "GOVERNANCE",
 		"stage": "general",
 		"name": "governanceOften"
 	},
@@ -635,7 +635,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "keyPersonnel"
 	},
@@ -650,7 +650,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "supplierPersonnel"
 	},
@@ -665,7 +665,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "customerPersonnel"
 	},
@@ -680,7 +680,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "plannedNegotiationsMonth"
 	},
@@ -695,7 +695,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "actualNegotiationsMonth"
 	},
@@ -714,7 +714,7 @@
 				"option": 1
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "soleSourced"
 	},
@@ -729,7 +729,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "proposedPeriodWeeks"
 	},
@@ -744,7 +744,7 @@
 				"option": 0
 			}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "actualPeriodWeeks"
 	},
@@ -757,7 +757,7 @@
 			{ "select": "No", "option": 0},
 			{ "select": "Yes", "option": 1}
 		],
-		"table": "project",
+		"table": "PROJECT",
 		"stage": "general",
 		"name": "isDueDiligenceCompleted"
 	}

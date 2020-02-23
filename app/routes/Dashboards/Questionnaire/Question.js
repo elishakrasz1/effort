@@ -44,11 +44,11 @@ const Question = (props) => {
                                         name: item.id,
                                         component: <QuestionInput id={item.id} index={index} qu={item.qu} final={final} name={item.name} stage={item.stage} table={item.table} />
                                     }
-                                case 'INPUT':
-                                    return {
-                                        name: item.id,
-                                        component: <QuestionMultiple id={item.id} index={index} qu={item.qu} final={final} name={item.name} stage={item.stage} table={item.table} />
-                                    }
+                                // case 'INPUT':
+                                //     return {
+                                //         name: item.id,
+                                //         component: <QuestionMultiple id={item.id} index={index} qu={item.qu} final={final} name={item.name} stage={item.stage} table={item.table} />
+                                //     }
                                 case 'TEXT':
                                     return {
                                         name: item.id,

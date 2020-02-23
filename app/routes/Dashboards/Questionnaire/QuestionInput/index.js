@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { connect } from 'react-redux'
+import { UPDATE_PROJECT, UPDATE_GOVERNANCE, UPDATE_CONTRACT_VALUE } from "../../../../graphql/mutations"
 // import { updateAction } from './updateAction'
+import { useMutation } from '@apollo/react-hooks'
+
 import { updateAction } from '../../../../store/index'
 import _ from "lodash";
 
@@ -36,10 +39,11 @@ export const QuestionInput = props => {
   const { qu, name } = props;
   const { final } = props;
   const { control, handleSubmit } = useForm();
-  const onSubmit = (data) => props.updateAction(data)
-
+  const [ updateProject, { projectData } ] = useMutation(UPDATE_PROJECT);
+  const [ updateContractValue, { contractData } ] = useMutation(UPDATE_CONTRACT_VALUE);
+  const [ updateGovernance, { governanceData } ] = useMutation(UPDATE_GOVERNANCE);
   const [value, setValue] = React.useState([]);
-  
+
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id, value });
     props.nextFn();
@@ -50,6 +54,28 @@ export const QuestionInput = props => {
     props.prevFn();
   }
 
+
+  // const onSubmitProduct = (table, data) => {
+  //   switch(table) {
+  //     case 'PROJECT':
+  //       return updateProject({ variables: { input: projectData }} )
+  //     case 'CONTRACT_VALUE':
+  //       return updateContractValue({ variables: { input: contractData }})
+  //     case 'GOVERNANCE':
+  //       return updateGovernance({ variables: { input: governanceData }})
+  //     default:
+  //       return updateProject({ variables: { input: projectData }} )
+  //   }
+  //   console.log("table", table )
+  //   // updateProject({ variables: { input: data }} )
+  //   // console.log(data.value)
+  //   // data.value = "";
+  // }
+
+  const onSubmitProduct = (projectData) => {
+    updateProject({ variables: { input: projectData }} )
+    // console.log(table)
+  }
 
   return (
     <div>
@@ -67,14 +93,13 @@ export const QuestionInput = props => {
           marginLeft: "100px"
         }}
       >
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmitProduct)}>
           <FormGroup>
             <Label style={{
                 marginLeft: '18px'
             }}>Please Enter...</Label>
             <Col sm={3}>
-            <Controller as={<Input />} type="number" name={name} control={control} defaultValue="" />
-              <input type="submit" />
+            <Controller as={<Input />} type="number" name={name} control={control} defaultValue="" />              <input type="submit" />
             </Col>
           </FormGroup>
         </Form>
@@ -100,18 +125,20 @@ export const QuestionInput = props => {
 };
 
 
-const mapStateToProps = (state) => {
-  return {
-    bodyObject: state.bodyObject
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     bodyObject: state.bodyObject
+//   }
+// }
 
-const mapDispatchToProps = { updateAction}
+// const mapDispatchToProps = { updateAction}
 
-// export default QuestionInput;
+export default QuestionInput;
 
 // connect(({ }) => ({  }), updateAction)(QuestionInput)
 
 // export default connect(state => ({ data: updateAction(state) }))(QuestionInput)
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionInput)
+// export default connect(mapStateToProps, mapDispatchToProps)(QuestionInput)
+
+
 

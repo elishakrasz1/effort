@@ -46,7 +46,14 @@ const QuestionText = props => {
     // props.saveState(props.index, { id: props.id, value });
     props.prevFn();
   }
-  
+  function onValueChange(newValue) {
+    if (value === newValue) {
+      setValue(newValue);
+      return;
+    }
+    setValue(newValue);
+    console.log('new', newValue)
+  }
   return (
     <div>
       <CardBody
